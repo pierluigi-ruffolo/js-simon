@@ -12,15 +12,9 @@ let isValid = true;
 /* FUNZIONE PRINCIPALE: genera numeri, li mostra, avvia timer e timeout */
 function avviaGioco() {
   numeriCasuali = generaNumeriCasuali();
-
-  // Mostro i numeri nella card
-  contenutoCarta.innerHTML = `
-    <p class="fs-2 p-2 border">${numeriCasuali[0]}</p>
-    <p class="fs-2 p-2 border">${numeriCasuali[1]}</p>
-    <p class="fs-2 p-2 border">${numeriCasuali[2]}</p>
-    <p class="fs-2 p-2 border">${numeriCasuali[3]}</p>
-    <p class="fs-2 p-2 border">${numeriCasuali[4]}</p>
-  `;
+  for (let i = 0; i < numeriCasuali.length; i++) {
+    contenutoCarta.innerHTML += `<p class="fs-2 p-2 border">${numeriCasuali[i]}</p>`;
+  }
 
   avviaTimer();
   mostraInputDopoTimeout();
