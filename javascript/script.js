@@ -84,7 +84,7 @@ bottoneInvia.addEventListener("click", () => {
   if (isValid) {
     const inputNum = document.querySelectorAll(".form-control");
     if (inputNum.length === 0) {
-      alert(`Inserisci un numero valido`);
+      alert(`Hai troppa fretta`);
       return;
     }
     for (let i = 0; i < inputNum.length; i++) {
@@ -112,7 +112,13 @@ function calcolo() {
       }
     }
   }
-  resalDiv.innerHTML = `hai indovinato ${contatore}!  (${numeriCorriSpondenti.join(
-    " , "
-  )})`;
+  const convertiArr = numeriCorriSpondenti.join(" , ");
+  componeOutput(convertiArr, contatore);
+}
+function componeOutput(convertiArr, contatore) {
+  if (contatore === 0) {
+    resalDiv.innerHTML = `<h3 class="text-center mt-3">Hai perso!!!</h3>`;
+  } else {
+    resalDiv.innerHTML = `<h3 class="text-center mt-3">ne hai indovinato ${contatore}!! (${convertiArr})</h3>`;
+  }
 }
