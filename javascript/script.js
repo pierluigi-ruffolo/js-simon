@@ -1,4 +1,4 @@
-/* 🔹 SELEZIONE ELEMENTI DOM */
+/* SELEZIONE ELEMENTI DOM */
 const titoloCarta = document.querySelector(".card-title");
 const contenutoCarta = document.querySelector(".card-text");
 const bottoneInvia = document.querySelector(".btn");
@@ -80,8 +80,13 @@ function generaNumeriCasuali() {
 /* al click confronto i numeri inseriti con quelli generati */
 
 bottoneInvia.addEventListener("click", () => {
+  numeriUtente = [];
   if (isValid) {
     const inputNum = document.querySelectorAll(".form-control");
+    if (inputNum.length === 0) {
+      alert(`Inserisci un numero valido`);
+      return;
+    }
     for (let i = 0; i < inputNum.length; i++) {
       const numInputUtente = parseInt(inputNum[i].value.trim());
       if (isNaN(numInputUtente)) {
