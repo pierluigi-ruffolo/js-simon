@@ -8,7 +8,7 @@ const resalDiv = document.querySelector(".resalt");
 /*  VARIABILI GLOBALI */
 let numeriCasuali = [];
 let numeriUtente = [];
-let validetor = true;
+let isValid = true;
 /* FUNZIONE PRINCIPALE: genera numeri, li mostra, avvia timer e timeout */
 function avviaGioco() {
   numeriCasuali = generaNumeriCasuali();
@@ -80,8 +80,7 @@ function generaNumeriCasuali() {
 /* al click confronto i numeri inseriti con quelli generati */
 
 bottoneInvia.addEventListener("click", () => {
-  numeriUtente = [];
-  if (validetor) {
+  if (isValid) {
     const inputNum = document.querySelectorAll(".form-control");
     for (let i = 0; i < inputNum.length; i++) {
       const numInputUtente = parseInt(inputNum[i].value.trim());
@@ -98,17 +97,17 @@ bottoneInvia.addEventListener("click", () => {
 
 function calcolo() {
   let contatore = 0;
-  let numeriCorrispondenti = [];
+  let numeriCorriSpondenti = [];
   for (let i = 0; i < numeriCasuali.length; i++) {
     const numeroCasuale = numeriCasuali[i];
     for (let j = 0; j < numeriUtente.length; j++) {
       if (numeroCasuale === numeriUtente[j]) {
         contatore++;
-        numeriCorrispondenti.push(numeriUtente[j]);
+        numeriCorriSpondenti.push(numeriUtente[j]);
       }
     }
   }
-  resalDiv.innerHTML = `hai indovinato ${contatore}!  (${numeriCorrispondenti.join(
+  resalDiv.innerHTML = `hai indovinato ${contatore}!  (${numeriCorriSpondenti.join(
     " , "
   )})`;
 }
