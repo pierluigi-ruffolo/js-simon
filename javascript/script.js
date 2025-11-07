@@ -91,7 +91,7 @@ bottoneInvia.addEventListener("click", () => {
       numeriUtente.push(numInputUtente);
     }
     calcolo();
-    validetor = !validetor;
+    isValid = !isValid;
   }
 });
 
